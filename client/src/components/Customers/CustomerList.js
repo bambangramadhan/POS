@@ -6,7 +6,7 @@ export default class CustomerList extends Component {
   render() {
 
     return(
-      <div className="container">
+      <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
