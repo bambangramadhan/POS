@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
-import Modal from './Modal';
+// import Modal from './Modal';
 // import DetailInvoice from './components/Invoice/DetailInvoice';
-import MiniDrawer from './components/Test';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

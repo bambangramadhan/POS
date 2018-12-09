@@ -3,7 +3,9 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom'
 import Test from './components/Test'
 import CustomerList from './components/Customers/CustomerList'
-import DaftarProduk from './components/Produk/DaftarProduk'
+import Produk from './components/Produk/Produk'
+import DaftarInvoice from './components/Invoice/DaftarInvoice'
+import Kasir from './components/Kasir/Kasir'
 
 class App extends Component {
 
@@ -12,7 +14,9 @@ class App extends Component {
       <Switch>
         <Route exact path='/' component={Test} />
         <Route path='/customer' component={CustomerList}/>
-        <Route path='/produk' component={DaftarProduk}/>
+        <Route path='/produk' component={Produk}/>
+        <Route path='/invoice' component={DaftarInvoice}/>
+        <Route path='/kasir' component={Kasir}/>
       </Switch>
     )
   }

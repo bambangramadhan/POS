@@ -23,7 +23,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
-import CustomerList from './Customers/CustomerList';
+import DaftarProduk from './DaftarProduk';
 import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -97,7 +97,7 @@ const styles = theme => ({
 class MiniDrawer extends React.Component {
   state = {
     open: true,
-    buka: true
+    buka: false
   };
 
   handleClick = () => {
@@ -173,48 +173,56 @@ class MiniDrawer extends React.Component {
           </div>
           <Divider />
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                <NavLink to='/customer'><ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon></NavLink>
-                <ListItemText classes={{primary:classes.listItemText}} primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText classes={{primary:classes.listItemText}} primary={text} />
-              </ListItem>
-            ))}
-          </List>
-          <Divider />
-          <List>
-              <ListItem button key={['Products']}>
+              <ListItem button selected>
                 <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/produk'>Products</NavLink>
+                <NavLink to='/produk'>Faktur</NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/produk'>Kasir</NavLink>
               </ListItem>
               <ListItem button onClick={this.handleClick}>
                 <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
-                <ListItemText inset primary="Inbox" classes={{primary:classes.listItemText}} />
+                <ListItemText inset primary="Laporan" classes={{primary:classes.listItemText}} />
                 {this.state.buka ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
                 <Collapse in={this.state.buka} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                  <ListItem button className={classes.nested} selected>
+                  <ListItem button className={classes.nested}>
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                  <NavLink to='/produk'>Bar</NavLink>
+                  <NavLink to='/'>Penjualan</NavLink>
+                  </ListItem>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                  <NavLink to='/'>Transaksi</NavLink>
                   </ListItem>
                   </List>
                 </Collapse>
+              <ListItem button>
+                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/produk'>Pelanggan</NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/produk'>Pembelian</NavLink>
+              </ListItem>
+              <ListItem button>
+                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/produk'>Penyuplai</NavLink>
+              </ListItem>
+            <ListItem button>
+              <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+              <NavLink to='/produk'>Produk</NavLink>
+            </ListItem>
             </List>
           </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <CustomerList />
+          <DaftarProduk />
         </main>
       </div>
     );
