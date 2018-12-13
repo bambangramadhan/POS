@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DataCustomer from './DataCustomer'
+import TambahCustomer from './TambahCustomer'
 
 export default class CustomerList extends Component {
 
@@ -13,14 +14,24 @@ export default class CustomerList extends Component {
       <div className="panel-heading">Customer List</div>
       <div className="panel-body">
       <form className="form-inline">
-      <button type="button" className="btn btn-primary">Tambah</button>
       <div className="form-group">
-      <label></label>&nbsp;
-      <input type="text" className="form-control" name="id" placeholder="Cari berdasarkan id" />
+      <TambahCustomer />
       </div>
       <div className="form-group">
-      <label></label>&nbsp;
-      <input type="text" className="form-control" name="nama" placeholder="Cari berdasarkan nama" />
+      <div className="box">
+      <div className="container-2">&nbsp;
+      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
+      <input type="text" id="search" placeholder="    Cari berdasarkan ID..." />
+      </div>
+      </div>
+      </div>
+      <div className="form-group">
+      <div className="box">
+      <div className="container-2">&nbsp;
+      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
+      <input type="text" id="search" placeholder="    Cari berdasarkan Nama..." />
+      </div>
+      </div>
       </div>
       </form>
       </div>

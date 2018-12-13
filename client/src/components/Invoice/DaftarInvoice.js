@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
+import '../../App.css'
+import DetailInvoice from './DetailInvoice'
 
 export default class DaftarInvoice extends Component {
 
   render() {
 
     return(
-      <div className="container">
+      <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
@@ -13,8 +15,12 @@ export default class DaftarInvoice extends Component {
       <div className="panel-body">
       <form className="form-inline">
       <div className="form-group">
-      <label></label>&nbsp;
-      <input type="text" className="form-control" name="nama" placeholder="Cari" />
+      <div className="box">
+      <div className="container-2">&nbsp;
+      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
+      <input type="text" id="search" placeholder="    Cari..." />
+      </div>
+      </div>
       </div>
       </form>
       </div>
@@ -36,7 +42,7 @@ export default class DaftarInvoice extends Component {
       <td>Bambang</td>
       <td>Rp. 20.000.000</td>
       <td>
-      <button type="button" className="btn btn-primary"> Detail</button>
+      <DetailInvoice />
       </td>
       </tr>
       </tbody>

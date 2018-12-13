@@ -23,7 +23,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
-import DataKasir from './DataKasir';
+import PurchaseOrder from './PurchaseOrder';
 import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -177,10 +177,12 @@ class MiniDrawer extends React.Component {
                 <NavLink to='/invoice'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/invoice'>Faktur</NavLink>
               </ListItem>
-              <ListItem button selected>
+
+              <ListItem button>
                 <NavLink to='/kasir'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/kasir'>Kasir</NavLink>
               </ListItem>
+
               <ListItem button onClick={this.handleClick}>
                 <NavLink to='/reports'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
                 <ListItemText inset primary="Laporan" classes={{primary:classes.listItemText}} />
@@ -202,27 +204,66 @@ class MiniDrawer extends React.Component {
                   </ListItem>
                   </List>
                 </Collapse>
+
               <ListItem button>
                 <NavLink to='/customers'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/customers'>Pelanggan</NavLink>
               </ListItem>
-              <ListItem button>
-                <NavLink to='/po'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/po'>Pembelian</NavLink>
+
+              <ListItem button onClick={this.handleClick}>
+                <NavLink to='/'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
+                <ListItemText inset primary="Pembelian" classes={{primary:classes.listItemText}} />
+                {this.state.buka ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
+                <Collapse in={this.state.buka} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                  <NavLink to='/'>Data Pembelian</NavLink>
+                  </ListItem>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                  <NavLink to='/po'>Buat Orderan</NavLink>
+                  </ListItem>
+                  </List>
+                </Collapse>
+
               <ListItem button>
                 <NavLink to='/supplier'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/supplier'>Penyuplai</NavLink>
               </ListItem>
-            <ListItem button>
-              <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-              <NavLink to='/produk'>Produk</NavLink>
-            </ListItem>
+
+              <ListItem button onClick={this.handleClick}>
+                <NavLink to='/'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
+                <ListItemText inset primary="Produk" classes={{primary:classes.listItemText}} />
+                {this.state.buka ? <ExpandLess /> : <ExpandMore />}
+              </ListItem>
+                <Collapse in={this.state.buka} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                  <NavLink to='/produk'>Data Produk</NavLink>
+                  </ListItem>
+                  <ListItem button className={classes.nested}>
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                  <NavLink to='/'>Kategori Produk</NavLink>
+                  </ListItem>
+                  </List>
+                </Collapse>
+
             </List>
           </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <DataKasir />
+          <PurchaseOrder />
         </main>
       </div>
     );

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import TambahPo from './TambahPo'
 
 export default class BuatOrderan extends Component {
   render(){
     return(
-      <div className="container">
+      <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
@@ -88,7 +89,7 @@ export default class BuatOrderan extends Component {
       </div>
       </div>
 
-      <button type="button" className="btn btn-primary btn-lg btn-block">Tambah Item</button>
+      <TambahPo />
 
       <br /><br />
 

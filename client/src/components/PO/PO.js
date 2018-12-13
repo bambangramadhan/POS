@@ -23,7 +23,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
-import DataKasir from './DataKasir';
+import BuatOrderan from './BuatOrderan';
 import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -177,7 +177,7 @@ class MiniDrawer extends React.Component {
                 <NavLink to='/invoice'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/invoice'>Faktur</NavLink>
               </ListItem>
-              <ListItem button selected>
+              <ListItem button>
                 <NavLink to='/kasir'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/kasir'>Kasir</NavLink>
               </ListItem>
@@ -206,9 +206,9 @@ class MiniDrawer extends React.Component {
                 <NavLink to='/customers'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/customers'>Pelanggan</NavLink>
               </ListItem>
-              <ListItem button>
+              <ListItem button selected>
                 <NavLink to='/po'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/po'>Pembelian</NavLink>
+                <NavLink exact to='/po'>Pembelian</NavLink>
               </ListItem>
               <ListItem button>
                 <NavLink to='/supplier'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -222,7 +222,7 @@ class MiniDrawer extends React.Component {
           </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <DataKasir />
+          <BuatOrderan />
         </main>
       </div>
     );

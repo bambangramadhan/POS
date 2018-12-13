@@ -1,21 +1,30 @@
 import React, { Component } from 'react'
+import TambahSupplier from './TambahSupplier'
+import '../../App.css'
+import 'font-awesome/css/font-awesome.min.css';
 
 export default class DaftarSupplier extends Component {
 
   render() {
 
     return(
-      <div className="container">
+      <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
       <div className="panel-heading">Daftar Supplier</div>
       <div className="panel-body">
       <form className="form-inline">
-      <button type="button" className="btn btn-primary">Tambah Supplier</button>
       <div className="form-group">
-      <label></label>&nbsp;
-      <input type="text" className="form-control" name="nama" placeholder="Cari" />
+      <TambahSupplier />
+      </div>
+      <div className="form-group">
+      <div className="box">
+      <div className="container-2">&nbsp;
+      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
+      <input type="text" id="search" placeholder="    Cari..." />
+      </div>
+      </div>
       </div>
       </form>
       </div>

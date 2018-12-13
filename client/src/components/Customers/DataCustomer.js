@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ViewCustomer from './ViewCustomer'
 
 export default class DataCustomer extends Component {
   constructor(props, context) {
@@ -35,7 +36,7 @@ export default class DataCustomer extends Component {
         <td>Rp. 21.471.000</td>
         <td>Rp. 21.471.000</td>
         <td>
-        <button type="button" className="btn btn-primary"><span className="glyphicon glyphicon-eye-open"></span> View</button>&nbsp;
+        <ViewCustomer />
         <button type="button" className="btn btn-success" onClick={this.handleEditClick.bind(this)}><span className="glyphicon glyphicon-pencil"></span> Edit</button>&nbsp;
         <button type="button" className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span> Delete</button>
         </td>

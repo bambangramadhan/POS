@@ -20,7 +20,7 @@ export default class Kategori extends Component {
   render() {
     if(this.state.adding) {
       return(
-        <div className="container">
+        <div className="container-fluid">
         <br />
         <div className="panel panel-primary">
         <div className="panel panel-default">

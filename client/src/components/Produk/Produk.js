@@ -173,16 +173,16 @@ class MiniDrawer extends React.Component {
           </div>
           <Divider />
           <List>
-              <ListItem button selected>
-                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/produk'>Faktur</NavLink>
+              <ListItem button>
+                <NavLink to='/invoice'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/invoice'>Faktur</NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/produk'>Kasir</NavLink>
+                <NavLink to='/kasir'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/kasir'>Kasir</NavLink>
               </ListItem>
               <ListItem button onClick={this.handleClick}>
-                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
+                <NavLink to='/reports'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
                 <ListItemText inset primary="Laporan" classes={{primary:classes.listItemText}} />
                 {this.state.buka ? <ExpandLess /> : <ExpandMore />}
               </ListItem>
@@ -192,29 +192,29 @@ class MiniDrawer extends React.Component {
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                  <NavLink to='/'>Penjualan</NavLink>
+                  <NavLink to='/reports'>Penjualan</NavLink>
                   </ListItem>
                   <ListItem button className={classes.nested}>
                     <ListItemIcon>
                       <StarBorder />
                     </ListItemIcon>
-                  <NavLink to='/'>Transaksi</NavLink>
+                  <NavLink to='/reports'>Transaksi</NavLink>
                   </ListItem>
                   </List>
                 </Collapse>
               <ListItem button>
-                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/produk'>Pelanggan</NavLink>
+                <NavLink to='/customers'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/customers'>Pelanggan</NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/produk'>Pembelian</NavLink>
+                <NavLink to='/po'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/po'>Pembelian</NavLink>
               </ListItem>
               <ListItem button>
-                <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
-                <NavLink to='/produk'>Penyuplai</NavLink>
+                <NavLink to='/supplier'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
+                <NavLink to='/supplier'>Penyuplai</NavLink>
               </ListItem>
-            <ListItem button>
+            <ListItem button selected>
               <NavLink to='/produk'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
               <NavLink to='/produk'>Produk</NavLink>
             </ListItem>

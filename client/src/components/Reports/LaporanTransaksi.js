@@ -23,7 +23,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
-import DataKasir from './DataKasir';
+import Transaksi from './Transaksi';
 import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
@@ -177,11 +177,11 @@ class MiniDrawer extends React.Component {
                 <NavLink to='/invoice'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/invoice'>Faktur</NavLink>
               </ListItem>
-              <ListItem button selected>
+              <ListItem button>
                 <NavLink to='/kasir'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>&nbsp;&nbsp;&nbsp;&nbsp;
                 <NavLink to='/kasir'>Kasir</NavLink>
               </ListItem>
-              <ListItem button onClick={this.handleClick}>
+              <ListItem button onClick={this.handleClick} selected>
                 <NavLink to='/reports'><ListItemIcon><InboxIcon /></ListItemIcon></NavLink>
                 <ListItemText inset primary="Laporan" classes={{primary:classes.listItemText}} />
                 {this.state.buka ? <ExpandLess /> : <ExpandMore />}
@@ -222,7 +222,7 @@ class MiniDrawer extends React.Component {
           </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <DataKasir />
+          <Transaksi />
         </main>
       </div>
     );

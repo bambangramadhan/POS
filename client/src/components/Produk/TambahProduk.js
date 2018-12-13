@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 
-export default class TambahCustomer extends Component {
+export default class TambahProduk extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,61 +36,49 @@ export default class TambahCustomer extends Component {
                     <div className="panel panel-primary">
 
                     <div className="panel-heading">
-                      Tambah Customer
+                      Tambah Produk
                     </div>
 
                     <div className="panel-body">
                     <form className="form-horizontal">
 
                     <div className="form-group">
-                    <label className="col-sm-2 control-label">ID Customer</label>
+                    <label className="col-sm-2 control-label">Kode Produk</label>
                       <div className="col-sm-10">
-                        <input type="text" className="form-control" name="title" placeholder="ID Customer"  onChange='' />
+                        <input type="text" className="form-control" name="title" placeholder="Kode Produk" onChange='' />
                       </div>
                     </div>
 
                     <div className="form-group">
-                    <label className="col-sm-2 control-label">Nama Customer</label>
+                    <label className="col-sm-2 control-label">Nama Produk</label>
                       <div className="col-sm-10">
-                        <input type="text" className="form-control" name="title" placeholder="Nama Customer" onChange='' />
+                        <input type="text" className="form-control" name="title" placeholder="Nama Produk" onChange='' />
                       </div>
                     </div>
 
                     <div className="form-group">
-                    <label className="col-sm-2 control-label">No. Telp</label>
+                    <label className="col-sm-2 control-label">Harga</label>
                       <div className="col-sm-10">
-                        <input type="text" className="form-control" name="title" placeholder="No. Telp" onChange='' />
+                        <input type="text" className="form-control" name="title" placeholder="Harga" onChange='' />
                       </div>
                     </div>
 
                     <div className="form-group">
-                    <label className="col-sm-2 control-label">Email</label>
+                    <label className="col-sm-2 control-label">Stok</label>
                       <div className="col-sm-10">
-                        <input type="text" className="form-control" name="title" placeholder="Email" onChange='' />
+                        <input type="text" className="form-control" name="title" placeholder="Tanggal Lahir" onChange='' />
                       </div>
                     </div>
 
                     <div className="form-group">
-                    <label className="col-sm-2 control-label">Tanggal Lahir</label>
-                      <div className="col-sm-10">
-                        <input type="date" className="form-control" name="title" placeholder="Tanggal Lahir" onChange='' />
-                      </div>
-                    </div>
-
-                    <div className="form-group">
-                    <label className="col-sm-2 control-label">Jenis Kelamin</label>
+                    <label className="col-sm-2 control-label">Kategori</label>
                       <div className="col-sm-10">
                         <select className="form-control" name="rate" onChange=''>
-                          <option value="Laki-laki">Laki-laki</option>
-                          <option value="Perempuan">Perempuan</option>
+                          <option value="Makanan">Makanan</option>
+                          <option value="Minuman">Minuman</option>
+                          <option value="Elektronik">Elektronik</option>
+                          <option value="Perabotan">Perabotan</option>
                         </select>
-                      </div>
-                    </div>
-
-                    <div className="form-group">
-                    <label className="col-sm-2 control-label">Alamat</label>
-                      <div className="col-sm-10">
-                        <textarea className="form-control" name="description" placeholder="Alamat" rows="2" onChange='' />
                       </div>
                     </div>
 

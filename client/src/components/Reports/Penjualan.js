@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Penjualan extends Component {
   render(){
     return(
-      <div className="container">
+      <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
 
