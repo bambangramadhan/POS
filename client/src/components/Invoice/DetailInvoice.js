@@ -24,12 +24,12 @@ export default class DetailInvoice extends Component {
     render() {
         return (
             <section>
-                <button type="button" className="btn btn-primary" value="Open" onClick={() => this.openModal()} ><span className="glyphicon glyphicon-eye-open"></span> View</button>
+                <button type="button" className="btn btn-primary" value="Open" onClick={() => this.openModal()} ><span className="glyphicon glyphicon-eye-open"></span> Detail</button>
                 <Modal
                     visible={this.state.visible}
                     width="800"
-                    height="600"
-                    effect="fadeInLeft"
+                    height="540"
+                    effect="fadeInRight"
                     onClickAway={() => this.closeModal()}
                 >
 
@@ -63,9 +63,25 @@ export default class DetailInvoice extends Component {
                 </tbody>
                 </table>
                 <br /><br />
-                <p>Total : Rp. 100.000</p>
-                <p>Pembayaran : Rp. 100.000</p>
-                <p>Kembalian : Rp. 0</p>
+                <div className="form-group">
+                  <h5 className="col-sm-9 control-label">Total : </h5>
+                <div className="col-sm-3">
+                  <h5>Rp. 100.000</h5>
+                </div>
+                </div>
+                <div className="form-group">
+                  <h5 className="col-sm-9 control-label">Pembayaran : </h5>
+                <div className="col-sm-3">
+                  <h5>Rp. 100.000</h5>
+                </div>
+                </div>
+                <div className="form-group">
+                  <h5 className="col-sm-9 control-label">Kembalian : </h5>
+                <div className="col-sm-3">
+                  <h5>Rp. 100.000</h5>
+                </div>
+                </div>
+                <p>.</p>
                 </div>
                 </div>
 

@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import DetailPenjualan from './DetailPenjualan'
 
 export default class Penjualan extends Component {
   render(){
     return(
+      <div>
+      <span className="glyphicon glyphicon-random"></span><h1 className="">Penjualan</h1><hr />
       <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
@@ -14,21 +17,22 @@ export default class Penjualan extends Component {
       <th>Kategori</th>
       <th>Jumlah Terjual</th>
       <th>Total</th>
-      <th>Action</th>
+      <th>Opsi</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-      <td>000121</td>
-      <td>Selasa, 22-10-2018</td>
-      <td>Bambang</td>
-      <td>Rp. 20.000.000</td>
+      <td>Teh Gelas</td>
+      <td>Minuman</td>
+      <td>10</td>
+      <td>Rp. 20.000</td>
       <td>
-      <button type="button" className="btn btn-primary"> Detail</button>
+      <DetailPenjualan />
       </td>
       </tr>
       </tbody>
       </table>
+      </div>
       </div>
       </div>
     )

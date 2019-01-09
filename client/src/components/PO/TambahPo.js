@@ -24,12 +24,12 @@ export default class TambahPo extends Component {
     render() {
         return (
             <section>
-                <button type="button" className="btn btn-primary btn-lg btn-block" value="Open" onClick={() => this.openModal()} >Tambah Item</button>
+                <button type="button" className="btn btn-primary btn-lg btn-block" value="Open" onClick={() => this.openModal()} ><span className="glyphicon glyphicon-plus"></span> Tambah Item</button>
                 <Modal
                     visible={this.state.visible}
                     width="800"
                     height="600"
-                    effect="fadeInLeft"
+                    effect="fadeInDown"
                     onClickAway={() => this.closeModal()}
                 >
 

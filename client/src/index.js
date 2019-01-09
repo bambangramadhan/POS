@@ -1,16 +1,23 @@
+import 'babel-polyfill'
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom'
+import {Provider} from 'react-redux'
 import './index.css';
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
+import configureStore from './store'
 // import Modal from './Modal';
 // import DetailInvoice from './components/Invoice/DetailInvoice';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
+const store  = configureStore()
+
+render(
+  <Provider store={store}>
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
+  </BrowserRouter>
+  </Provider>,
    document.getElementById('root')
  );
 

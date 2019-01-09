@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import DetailTransaksi from './DetailTransaksi'
 
 export default class Transaksi extends Component {
   render(){
     return(
+      <div>
+      <span className="glyphicon glyphicon-random"></span><h1 className="">Transaksi</h1><hr />
       <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
@@ -12,7 +15,7 @@ export default class Transaksi extends Component {
       <tr>
       <th>No. Struk</th>
       <th>Tanggal</th>
-      <th>Customer</th>
+      <th>Pelanggan</th>
       <th>Total</th>
       <th>Action</th>
       </tr>
@@ -24,11 +27,12 @@ export default class Transaksi extends Component {
       <td>Bambang</td>
       <td>Rp. 20.000.000</td>
       <td>
-      <button type="button" className="btn btn-primary"> Detail</button>
+      <DetailTransaksi />
       </td>
       </tr>
       </tbody>
       </table>
+      </div>
       </div>
       </div>
     )

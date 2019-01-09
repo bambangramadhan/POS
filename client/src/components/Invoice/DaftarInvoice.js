@@ -7,20 +7,17 @@ export default class DaftarInvoice extends Component {
   render() {
 
     return(
+      <div>
+      <span className="glyphicon glyphicon-random"></span><h1 className="">Faktur</h1><hr />
       <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
       <div className="panel-heading">Daftar Invoice</div>
       <div className="panel-body">
-      <form className="form-inline">
+      <form className="form-inline" id="demo-2">
       <div className="form-group">
-      <div className="box">
-      <div className="container-2">&nbsp;
-      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
-      <input type="text" id="search" placeholder="    Cari..." />
-      </div>
-      </div>
+      <input name="kode" type="search" placeholder="No Struk ..." />
       </div>
       </form>
       </div>
@@ -30,9 +27,9 @@ export default class DaftarInvoice extends Component {
       <tr>
       <th>No. Struk</th>
       <th>Tanggal</th>
-      <th>Customer</th>
+      <th>Pelanggan</th>
       <th>Total</th>
-      <th>Action</th>
+      <th>Opsi</th>
       </tr>
       </thead>
       <tbody>
@@ -47,6 +44,7 @@ export default class DaftarInvoice extends Component {
       </tr>
       </tbody>
       </table>
+      </div>
       </div>
       </div>
     )

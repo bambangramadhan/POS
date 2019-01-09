@@ -1,41 +1,55 @@
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var logger = require('morgan');
+var cors = require('cors');
+var mongoose = require('mongoose')
+var bodyParser = require('body-parser')
 
-var index = require('./routes/index');
+var customerRouter = require('./routes/customer');
+var dataRouter = require('./routes/dataProduk');
+var kasirRouter = require('./routes/kasir');
+var kategoriRouter = require('./routes/kategoriProduk')
+var poRouter = require('./routes/po');
+var supplierRouter = require('./routes/supplier');
 var usersRouter = require('./routes/users');
-var categorysRouter = require('./routes/categorys')
-
-var mongoose = require('mongoose');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/posdb', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/posdb', {
+	useNewUrlParser: true
+}).then(() => {
+    console.log("Successfully connected to the database");
+}).catch(err => {
+    console.log('Could not connect to the database. Exiting now...');
+    process.exit();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
+app.use(bodyParser())
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+
 app.use('/api/users', usersRouter);
-app.use('/api/categorys', categorysRouter);
+app.use('/api/kategori-produk', kategoriRouter);
+app.use('/api/customer', customerRouter);
+app.use('/api/data-produk', dataRouter);
+app.use('/api/kasir', kasirRouter);
+app.use('/api/po', poRouter);
+app.use('/api/supplier', supplierRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+  next(createError(404));
 });
 
 // error handler

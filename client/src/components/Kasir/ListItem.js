@@ -29,15 +29,16 @@ export default class ListItem extends Component {
         <label>Nama Barang</label>&nbsp;
         <input type="text" className="form-control" name="kode" placeholder="Nama Barang"/>&nbsp;
         </div>
-        <button type="button" className="btn btn-warning" onClick={this.handleHide.bind(this)}><span className="glyphicon glyphicon-ban-circle"> cancel</span></button>
+        <button type="button" className="btn btn-warning" onClick={this.handleHide.bind(this)}><span className="glyphicon glyphicon-ban-circle"> Batal</span></button>
         </form>
         </div>
       )
     } else {
       return(
         <div>
-        <button type="button" className="btn btn-success" onClick={this.handleShow.bind(this)}>Cari Barang</button>&nbsp;
-        <button type="button" className="btn btn-warning">Reset Transaksi</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" className="btn btn-success" onClick={this.handleShow.bind(this)}><span className="glyphicon glyphicon-search"></span> Cari Barang</button>&nbsp;&nbsp;&nbsp;
+        <button type="button" className="btn btn-warning"><span className="glyphicon glyphicon-trash"></span> Reset Transaksi</button>
         </div>
       )
     }

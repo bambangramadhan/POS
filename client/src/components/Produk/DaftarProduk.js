@@ -3,34 +3,62 @@ import DataProduk from './DataProduk'
 import TambahProduk from './TambahProduk'
 
 export default class DaftarProduk extends Component {
+  constructor(props, context){
+    super(props, context)
+    this.state = {
+      kode: '',
+      nama: ''
+    }
+  }
+
+  handleChange(e){
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit(e){
+    e.preventDefault()
+  }
+
   render() {
+    const {data, actions} = this.props
+
+    var kode = this.state.kode.trim().toLowerCase()
+    var nama = this.state.nama.trim().toLowerCase()
+
+    var filteredData = data
+
+    if(kode !== '' && nama !== '' ){
+      filteredData = data.filter(item => item.kode.startsWith(kode) && item.nama.toLowerCase().startsWith(nama))
+    }else if (kode !== '') {
+      filteredData =  data.filter(item => item.kode.startsWith(kode))
+    }else if (nama !== '') {
+      filteredData =  data.filter(item => item.nama.toLowerCase().startsWith(nama))
+    }
+
+    let dataNodes = filteredData.map(function(data){
+      return(
+        <DataProduk key={data._id} data={data} {...actions} />
+      )
+    });
 
     return(
+      <div>
+      <span className="glyphicon glyphicon-random"></span><h1 className="">Daftar Produk</h1><hr />
       <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
       <div className="panel-heading">Daftar Produk</div>
       <div className="panel-body">
-      <form className="form-inline">
       <div className="form-group">
-      <TambahProduk />
+      <TambahProduk data={data} actions={actions} />
       </div>
+      <form className="form-inline" id="demo-2" onSubmit={this.handleSubmit.bind(this)}>
       <div className="form-group">
-      <div className="box">
-      <div className="container-2">&nbsp;
-      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
-      <input type="text" id="search" placeholder="    Cari berdasarkan ID..." />
-      </div>
-      </div>
+      <input name="kode" type="search" placeholder="Masukkan kode ..." value={this.state.kode} onChange={this.handleChange.bind(this)} />&nbsp;
       </div>
       <div className="form-group">
-      <div className="box">
-      <div className="container-2">&nbsp;
-      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
-      <input type="text" id="search" placeholder="    Cari berdasarkan Nama..." />
-      </div>
-      </div>
+      <input name="nama" type="search" placeholder="Masukkan nama ..." value={this.state.nama} onChange={this.handleChange.bind(this)} />
       </div>
       </form>
       </div>
@@ -41,15 +69,17 @@ export default class DaftarProduk extends Component {
       <th>Kode</th>
       <th>Nama</th>
       <th>Kategori</th>
-      <th>Harga</th>
+      <th>Harga Beli</th>
+      <th>Harga Jual</th>
       <th>Stok</th>
-      <th>Actions</th>
+      <th>Opsi</th>
       </tr>
       </thead>
       <tbody>
-        <DataProduk />
+        {dataNodes}
       </tbody>
       </table>
+      </div>
       </div>
       </div>
     );

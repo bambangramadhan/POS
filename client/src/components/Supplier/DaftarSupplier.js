@@ -4,27 +4,73 @@ import '../../App.css'
 import 'font-awesome/css/font-awesome.min.css';
 
 export default class DaftarSupplier extends Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      id: '',
+      nama: '',
+      no_telp: '',
+      email: '',
+      alamat: '',
+      kode_pos: '',
+      kota: '',
+      negara: ''
+    }
+  }
+
+  handleChange(e){
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+  }
 
   render() {
+    const {data, actions} = this.props
+
+    var id = this.state.id.trim().toLowerCase()
+    var nama = this.state.nama.trim().toLowerCase()
+
+    var filteredData = data
+
+    if(id !== '' && nama !== '' ){
+      filteredData = data.filter(item => item.id.startsWith(id) && item.nama.toLowerCase().startsWith(nama))
+    }else if (id !== '') {
+      filteredData =  data.filter(item => item.id.startsWith(id))
+    }else if (nama !== '') {
+      filteredData =  data.filter(item => item.nama.toLowerCase().startsWith(nama))
+    }
+
+    let dataNodes = filteredData.map(function(data){
+      return(
+        <tr>
+        <td>{data.nama}</td>
+        <td>{data.alamat}</td>
+        <td>{data.no_telp}</td>
+        <td>{data.email}</td>
+        <td>
+        <button type="button" className="btn btn-danger" onClick={() => actions.deleteSupplier(data._id)}><span className="glyphicon glyphicon-trash"></span> Hapus</button>
+        </td>
+        </tr>
+      )
+    });
 
     return(
+      <div>
+      <span className="glyphicon glyphicon-random"></span><h1 className="">Daftar Penyuplai</h1><hr />
       <div className="container-fluid">
       <br />
       <div className="panel panel-primary">
       <div className="panel panel-default">
       <div className="panel-heading">Daftar Supplier</div>
       <div className="panel-body">
-      <form className="form-inline">
       <div className="form-group">
-      <TambahSupplier />
+      <TambahSupplier data={data} actions={actions} />
       </div>
+      <form className="form-inline" id="demo-2" onSubmit={this.handleSubmit.bind(this)}>
       <div className="form-group">
-      <div className="box">
-      <div className="container-2">&nbsp;
-      <span className="icon"><i className="fa fa-search fa-lg fa-fw" aria-hidden="true"></i></span>
-      <input type="text" id="search" placeholder="    Cari..." />
-      </div>
-      </div>
+      <input name="nama" type="search" placeholder="Masukkan nama ..." value={this.state.nama} onChange={this.handleChange.bind(this)} />&nbsp;
       </div>
       </form>
       </div>
@@ -40,17 +86,10 @@ export default class DaftarSupplier extends Component {
       </tr>
       </thead>
       <tbody>
-      <tr>
-      <td>Warung Bambang</td>
-      <td>Garut</td>
-      <td>08192801821</td>
-      <td>bambang@gmail.com</td>
-      <td>
-      <button type="button" className="btn btn-danger"><span className="glyphicon glyphicon-trash"></span> Delete</button>
-      </td>
-      </tr>
+      {dataNodes}
       </tbody>
       </table>
+      </div>
       </div>
       </div>
     )

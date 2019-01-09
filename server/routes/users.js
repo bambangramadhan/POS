@@ -38,6 +38,7 @@ router.post('/register', function(req, res, next){
   router.post('/login', (req, res) =>{
     User.findOne({
       email: req.body.email,
+      password: req.body.password
     }).then(user =>{
       if (!user){
         res.json({error:true, message : "Email is invalid"})

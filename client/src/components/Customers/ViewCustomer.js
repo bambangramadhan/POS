@@ -24,12 +24,12 @@ export default class ViewCustomer extends Component {
     render() {
         return (
             <section>
-                <button type="button" className="btn btn-primary" value="Open" onClick={() => this.openModal()} ><span className="glyphicon glyphicon-eye-open"></span> View</button>
+                <button type="button" className="btn btn-primary" value="Open" onClick={() => this.openModal()} ><span className="glyphicon glyphicon-eye-open"></span> Detail</button>
                 <Modal
                     visible={this.state.visible}
                     width="1000"
                     height="600"
-                    effect="fadeInLeft"
+                    effect="fadeInUp"
                     onClickAway={() => this.closeModal()}
                 >
 
@@ -40,12 +40,12 @@ export default class ViewCustomer extends Component {
                 <div className="panel-heading">Customer List</div>
                 <div className="container">
                 <div className="col-sm-4">
-                <h3>Bambang</h3><hr />
-                <p>Alamat        : Garut</p>
-                <p>No. Handphone : 085318738178</p>
-                <p>Email         : bambang@gmail.com</p>
-                <p>Tanggal Lahir : 4-9-2000</p>
-                <p>Jenis Kelamin : Laki-laki</p>
+                <h3>{this.props.data.nama}</h3><hr />
+                <p>Alamat        : {this.props.data.alamat}</p>
+                <p>No. Handphone : {this.props.data.no_telp}</p>
+                <p>Email         : {this.props.data.email}</p>
+                <p>Tanggal Lahir : {this.props.data.tgl_lahir}</p>
+                <p>Jenis Kelamin : {this.props.data.jenis_kelamin}</p>
                 </div>
 
                 <div className="col-sm-6">
@@ -91,7 +91,7 @@ export default class ViewCustomer extends Component {
                 </div>
                 </div>
 
-                <button type="button" className="btn btn-warning btn-lg btn-block" onClick={() => this.closeModal()}>Cancel</button>
+                <button type="button" className="btn btn-warning btn-lg btn-block" onClick={() => this.closeModal()}>Batal</button>
 
                 </Modal>
             </section>
