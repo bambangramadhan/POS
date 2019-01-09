@@ -10,7 +10,7 @@ export default class CustomerList extends Component {
       nama: ''
     }
   }
-
+  
   handleChange(e){
     this.setState({[e.target.name]: e.target.value})
   }
